@@ -1391,5 +1391,31 @@
         },
       });
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const iframe = document.querySelector('#reel iframe');
+        const playBtn = document.getElementById('btnPlay');
+        const placeholder = document.querySelector('.vid-placeholder');
+    
+        if (iframe && playBtn) {
+          const player = new Vimeo.Player(iframe);
+    
+          playBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+    
+            // Play the video
+            player.play().then(function () {
+              // Hide play button and placeholder
+              playBtn.style.display = 'none';
+              if (placeholder) placeholder.style.display = 'none';
+            }).catch(function (error) {
+              console.error('Playback error:', error);
+            });
+          });
+        }
+      });
+    </script>
+    
+    <script src="https://player.vimeo.com/api/player.js"></script>
   </body>
 </html>
