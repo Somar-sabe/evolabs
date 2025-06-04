@@ -17,7 +17,7 @@ function handleIntersection(entries, observer) {
                     document.body.style.backgroundColor = "#00E967";
                     break;
                 case "creo":
-                    // Change background color to color for "creo" section
+                    // Change background color to coslor for "creo" section
                     document.body.style.backgroundColor = "#cccccc";
                     break;
                     case "abb":
