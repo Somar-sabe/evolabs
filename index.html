@@ -1413,30 +1413,23 @@
   document.addEventListener('DOMContentLoaded', function () {
     const iframe = document.getElementById('myVimeoPlayer');
     const playBtn = document.getElementById('btnPlay');
-    const placeholder = document.querySelector('.vid-placeholder');
     const clickOverlay = document.querySelector('.click-overlay');
 
     if (iframe && playBtn && clickOverlay) {
       const player = new Vimeo.Player(iframe);
-      let isPlaying = false;
 
-      // Pause just in case
+      // Ensure it's paused on load
       player.pause().catch(err => console.warn('Initial pause failed:', err));
 
       playBtn.addEventListener('click', function (e) {
         e.preventDefault();
         playBtn.style.display = 'none';
-       
 
         player.setVolume(1);
-        player.play().then(() => {
-          isPlaying = true;
-        }).catch(err => console.error('Play error:', err));
+        player.play().catch(err => console.error('Play error:', err));
       });
 
       clickOverlay.addEventListener('click', function () {
-        if (!isPlaying) return;
-
         player.getPaused().then(paused => {
           if (paused) {
             player.play();
@@ -1448,6 +1441,21 @@
     }
   });
 </script>
+
+<style>
+  .click-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .fs-video {
+    position: relative;
+  }
+</style>
 
   </body>
 </html>
