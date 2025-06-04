@@ -17,7 +17,7 @@ let lang = {
     ru: "RU",
     en: "EN",
     kz: "KZ",
-    AboutBaylabs: "About Evo labs",
+    AboutBaylabs: "About Bay Labs",
     Acreativeagency:
       "A creative agency with a focus on branding, design and digital presence",
     ABBGymnasiet: "ABB-Gymnasiet",
