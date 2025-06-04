@@ -2983,7 +2983,7 @@ label {
 }
 
 .video-play-button {
-  z-index: 5;
+  z-index: 999999999;
   cursor: none;
   background-color: rgba(19, 19, 20, .2);
   justify-content: center;

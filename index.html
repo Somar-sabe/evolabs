@@ -387,22 +387,15 @@
                     <div id="reel" class="fs-video">
                       <div class="fs-video__player w-embed w-iframe">
                         <iframe
-                          style="
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                          "
-                          loading=""
-                          src="https://player.vimeo.com/video/849057520?badge=0&amp;autopause=0&amp;player_id=0&amp;muted=1&amp;loop=1&amp;autoplay=1&amp;controls=0&amp;title=0&amp;byline&amp;app_id=58479"
-                          allow="autoplay"
+                          id="myVimeoPlayer"
+                          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                          src="https://player.vimeo.com/video/849057520?badge=0&autopause=0&player_id=0&loop=1&controls=0&title=0&byline=0&app_id=58479"
+                          allow="autoplay; fullscreen"
                           frameborder="0"
-                          webkitallowfullscreen=""
-                          mozallowfullscreen=""
-                          allowfullscreen=""
-                        >
-                        </iframe>
+                          webkitallowfullscreen
+                          mozallowfullscreen
+                          allowfullscreen
+                        ></iframe>
                       </div>
                       <img
                         src="https://assets.website-files.com/61fb92bac35517f753fbbdd7/622b4913d1430db5dbead264_hdweb_placeholder.png"
@@ -422,7 +415,7 @@
                   </div>
                   <div id="btnPlay" class="video-play-button">
                     <div>
-                      <a href="#" class="reel__btn" data-lang="play"
+                      <a  class="reel__btn" data-lang="play"
                         >Play reel</a
                       >
                     </div>
@@ -1412,30 +1405,36 @@
         },
       });
     </script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const iframe = document.querySelector('#reel iframe');
-        const playBtn = document.getElementById('btnPlay');
-        const placeholder = document.querySelector('.vid-placeholder');
-    
-        if (iframe && playBtn) {
-          const player = new Vimeo.Player(iframe);
-    
-          playBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-    
-            // Play the video
-            player.play().then(function () {
-              // Hide play button and placeholder
-              playBtn.style.display = 'none';
-              if (placeholder) placeholder.style.display = 'none';
-            }).catch(function (error) {
-              console.error('Playback error:', error);
-            });
-          });
-        }
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const iframe = document.getElementById('myVimeoPlayer');
+    const playBtn = document.getElementById('btnPlay');
+    const placeholder = document.querySelector('.vid-placeholder');
+
+    if (iframe && playBtn) {
+      const player = new Vimeo.Player(iframe);
+
+      // Ensure it's paused on load
+      player.pause().catch((err) => console.warn('Pause failed:', err));
+
+      playBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        // Hide UI
+        playBtn.style.display = 'none';
+     
+
+        // Play video
+        player.play().catch((err) => {
+          console.error('Vimeo play failed:', err);
+        });
       });
-    </script>
+    }
+  });
+</script>
+
     
     <script src="https://player.vimeo.com/api/player.js"></script>
   </body>
