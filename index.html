@@ -385,11 +385,12 @@
                 <section class="h-scroll__section dark video-section">
                   <div class="video-section__wrap">
                     <div id="reel" class="fs-video">
+                      
                       <div class="fs-video__player w-embed w-iframe">
                         <iframe
                           id="myVimeoPlayer"
                           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                          src="https://player.vimeo.com/video/849057520?badge=0&autopause=0&player_id=0&loop=1&controls=0&title=0&byline=0&app_id=58479"
+                          src="https://player.vimeo.com/video/849057520?badge=0&autopause=0&player_id=0&muted=0&loop=1&controls=0&title=0&byline=0&app_id=58479"
                           allow="autoplay; fullscreen"
                           frameborder="0"
                           webkitallowfullscreen
@@ -397,6 +398,7 @@
                           allowfullscreen
                         ></iframe>
                       </div>
+                      <div class="click-overlay"></div>
                       <img
                         src="https://assets.website-files.com/61fb92bac35517f753fbbdd7/622b4913d1430db5dbead264_hdweb_placeholder.png"
                         loading="lazy"
@@ -420,7 +422,6 @@
                       >
                     </div>
                   </div>
-                  <div class="fs-video__overlay"></div>
                 </section>
 
                 <section
@@ -1407,35 +1408,46 @@
     </script>
 
 
+<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const iframe = document.getElementById('myVimeoPlayer');
     const playBtn = document.getElementById('btnPlay');
     const placeholder = document.querySelector('.vid-placeholder');
+    const clickOverlay = document.querySelector('.click-overlay');
 
-    if (iframe && playBtn) {
+    if (iframe && playBtn && clickOverlay) {
       const player = new Vimeo.Player(iframe);
+      let isPlaying = false;
 
-      // Ensure it's paused on load
-      player.pause().catch((err) => console.warn('Pause failed:', err));
+      // Pause just in case
+      player.pause().catch(err => console.warn('Initial pause failed:', err));
 
       playBtn.addEventListener('click', function (e) {
         e.preventDefault();
-
-        // Hide UI
         playBtn.style.display = 'none';
-     
+       
 
-        // Play video
-        player.play().catch((err) => {
-          console.error('Vimeo play failed:', err);
+        player.setVolume(1);
+        player.play().then(() => {
+          isPlaying = true;
+        }).catch(err => console.error('Play error:', err));
+      });
+
+      clickOverlay.addEventListener('click', function () {
+        if (!isPlaying) return;
+
+        player.getPaused().then(paused => {
+          if (paused) {
+            player.play();
+          } else {
+            player.pause();
+          }
         });
       });
     }
   });
 </script>
 
-    
-    <script src="https://player.vimeo.com/api/player.js"></script>
   </body>
 </html>
