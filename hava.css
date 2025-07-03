@@ -2859,8 +2859,8 @@ html {
   }
   
   .v-scroll__section.footer {
-    background-color: white;
-    color: var(--black);
+    background-color: black;
+    color: white;
     justify-content: flex-end;
     padding-top: 16rem;
     padding-bottom: 2rem;
