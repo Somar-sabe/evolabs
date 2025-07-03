@@ -425,41 +425,39 @@
                   </div>
                 </section>
                 <style>
-                .tapesa {
-                  position: absolute;
-                  top: -50%;
-                  width: 200%;
-                  font-size: 3rem;
-                  font-weight: bold;
-                  white-space: nowrap;
-                  transform: rotate(-65deg);
-                  text-transform: uppercase;
-                  animation: scrollText 10s linear infinite;
-                }
-            
-                .tapesa.white {
-                  color: black;
-                  background-color: white;
-                  left: -30%;
-                  padding: 10px 0;
-                }
-            
-                .tapesa.purple {
-                  color: black;
-                  background-color: #8d5cff;
-                  left: -20%;
-                  top: -55%;
-                  padding: 10px 0;
-                }
-            
-                @keyframes scrollText {
-                  0% {
-                    transform: translateX(0) rotate(-65deg);
-                  }
-                  100% {
-                    transform: translateX(-50%) rotate(-65deg);
-                  }
-                }
+      .tapesa {
+      position: absolute;
+      left: 50%;
+      transform: rotate(-25deg);
+      white-space: nowrap;
+      font-size: 3rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      animation: scrollText 10s linear infinite;
+    }
+
+    .tapesa.white {
+      color: black;
+      background-color: white;
+      padding: 10px 0;
+      animation-delay: 0s;
+    }
+
+    .tapesa.purple {
+      color: black;
+      background-color: #8d5cff;
+      padding: 10px 0;
+      animation-delay: 2s;
+    }
+
+    @keyframes scrollText {
+      0% {
+        top: 100%;
+      }
+      100% {
+        top: -100%;
+      }
+    }
               </style>
                 <div class="tapesa white">
                   CASE CASE CASE CASE CASE CASE CASE CASE CASE CASE CASE CASE
