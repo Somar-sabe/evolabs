@@ -424,7 +424,49 @@
                     </div>
                   </div>
                 </section>
-                <section class="h-scroll__section auto case"><div class="tape hide"><div class="tape__line white"><div class="tape__text" style="transform: translate3d(-464.52px, 0px, 0px);">case case case case case case case case case case case case case case case </div></div><div class="tape__line purple"><div class="tape__text" style="transform: translate3d(-464.52px, 0px, 0px);">case case case case case case case case case case case case </div></div><div class="tape__line white hide"><div class="tape__text" style="transform: translate3d(-464.52px, 0px, 0px);">WE ARE THE AGENCY BAYLABSWE ARE THE AGENCY BAYLABSWE ARE THE AGENCY WE ARE THE AGENCY BAYLABS</div></div></div></section>
+                <style>
+                .tapesa {
+                  position: absolute;
+                  top: -50%;
+                  width: 200%;
+                  font-size: 3rem;
+                  font-weight: bold;
+                  white-space: nowrap;
+                  transform: rotate(-65deg);
+                  text-transform: uppercase;
+                  animation: scrollText 10s linear infinite;
+                }
+            
+                .tapesa.white {
+                  color: black;
+                  background-color: white;
+                  left: -30%;
+                  padding: 10px 0;
+                }
+            
+                .tapesa.purple {
+                  color: black;
+                  background-color: #8d5cff;
+                  left: -20%;
+                  top: -55%;
+                  padding: 10px 0;
+                }
+            
+                @keyframes scrollText {
+                  0% {
+                    transform: translateX(0) rotate(-65deg);
+                  }
+                  100% {
+                    transform: translateX(-50%) rotate(-65deg);
+                  }
+                }
+              </style>
+                <div class="tapesa white">
+                  CASE CASE CASE CASE CASE CASE CASE CASE CASE CASE CASE CASE
+                </div>
+                <div class="tapesa purple">
+                  CASE CASE CASE CASE CASE CASE CASE CASE CASE CASE CASE CASE
+                </div>
                 <section
                   class="h-scroll__section auto services"
                   style="background-color: #000; color: #fff"
