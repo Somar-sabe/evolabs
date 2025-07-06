@@ -2048,7 +2048,7 @@ html {
   
   :root {
     --beige: #ebeae5;
-    --black: #131314;
+    --black: black;
     --purple: #8177ff;
     --neon: #d6ff6f;
     --orange: #ffaa4d;
