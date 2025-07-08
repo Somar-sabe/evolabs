@@ -6105,6 +6105,7 @@ label {
 
   #w-node-_3ba2d671-b18d-46b0-2243-92e039c9e6f0-39c9e6ed {
     grid-area: 1 / 1 / 2 / 8;
+
   }
 
   #w-node-_52730a51-c77b-f76c-3e85-51ce0cc5c548-39c9e6ed {
@@ -6553,6 +6554,7 @@ label {
 
   #w-node-_3ba2d671-b18d-46b0-2243-92e039c9e6f0-39c9e6ed {
     grid-area: 1 / 1 / 2 / 8;
+    grid-row-gap: 4rem;
   }
 
   #w-node-be413856-9b0c-bbd9-c006-22677008ee93-5a137a7b {
