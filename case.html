@@ -212,69 +212,32 @@
       stroke-dasharray: 30rem;
     }
   </style>
-        <header class="header">
-          <div class="header__inner">
-            <a
-              href="/"
-              aria-current="page"
-              class="logo w-inline-block w--current"
-            >
-              <div class="header__logo w-embed">
-                <img src="Bay Final Logo.png" alt="Bay Logo" />
-              </div>
-            </a>
-
-            <a id="nav-trigger-link" class="nav-trigger w-inline-block">
-              <div class="html-embed-3 w-embed" >
-                <svg
-                  alt="navigation"
-                  viewBox="0 0 46 46"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  id="nav-trigger-link"
-                >
-                  <g>
-                    <line
-                      class="nav-trigger__top"
-                      x1="1.74846e-07"
-                      y1="8"
-                      x2="46"
-                      y2="8"
-                      stroke="currentColor"
-                      stroke-width="3"
-                    ></line>
-                    <line
-                      class="nav-trigger__bottom"
-                      x1="1.74846e-07"
-                      y1="38"
-                      x2="46"
-                      y2="38"
-                      stroke="currentColor"
-                      stroke-width="3"
-                    ></line>
-                    <line
-                      class="nav-trigger__mid"
-                      x1="1.74846e-07"
-                      y1="23"
-                      x2="46"
-                      y2="23"
-                      stroke="currentColor"
-                      stroke-width="3"
-                    ></line>
-                    <path
-                      class="nav-trigger__squig"
-                      d="M1.5 8.5C1.5 8.5 12 19 22.5 16.5C33 14 21.5 1 17 3C12.5 5 18 18.5 45 3"
-                      stroke="currentColor"
-                      stroke-width="3"
-                    ></path>
-                  </g>
-                </svg>
-              </div>
-              <div class="hide" >Navigation</div>
-            </a>
-          </div>
-        </header>
-
+       
+    <header class="header"><div class="header__inner"><a href="/" class="logo w-inline-block"><div class="header__logo w-embed"> <img src="Bay Final Logo.png" alt="Bay Logo" /></div></a><a href="#" class="nav-trigger w-inline-block"><div class="html-embed-3 w-embed"><style type="text/css">
+      .nav-trigger__squig {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        transition: stroke-dashoffset 600ms ease-in-out;
+      }
+      .nav-trigger:hover .nav-trigger__squig {
+        stroke-dashoffset: 0;
+      }
+      .nav-trigger__top {
+        transition: transform 600ms ease-in-out;
+      }
+      .nav-trigger:hover .nav-trigger__top {
+        transform: translateX(100px);
+      }
+      </style>
+      <svg id="navigation" alt="navigation" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g>
+      <line class="nav-trigger__top" x1="1.74846e-07" y1="8" x2="46" y2="8" stroke="currentColor" stroke-width="3"></line>
+      <line class="nav-trigger__bottom" x1="1.74846e-07" y1="38" x2="46" y2="38" stroke="currentColor" stroke-width="3"></line>
+      <line class="nav-trigger__mid" x1="1.74846e-07" y1="23" x2="46" y2="23" stroke="currentColor" stroke-width="3"></line>
+      <path class="nav-trigger__squig" d="M1.5 8.5C1.5 8.5 12 19 22.5 16.5C33 14 21.5 1 17 3C12.5 5 18 18.5 45 3" stroke="currentColor" stroke-width="3"></path>
+      </g>
+      </svg></div><div class="hide">Navigation</div></a></div></header>
+      
   <!--   END of header section             -->
 
   <!--       First page section                        -->
@@ -581,6 +544,20 @@
             <p class="sticker__text lines">Let's<br>get in<br>touch</p>
           </div>
         </a></div>
+        <script>
+          document.getElementById("navigation").addEventListener("click", function() {
+            // Toggle the "hidden" class on the main container to hide/show its content
+            document.querySelector(".main").classList.toggle("hidden");
+            // Toggle the "show" class on the "site-bottom" element to show/hide it
+            document.querySelector(".site-bottom").classList.toggle("show");
+            document.querySelector(".nav").classList.toggle("show");
+            document.querySelector(".container").classList.toggle("show");
+            document.querySelector(".w-layout-grid nav__grid").classList.toggle("show");
+            
+          });
+        </script>
+    
+    
         <style>
           .hidden {
             display: none;
@@ -590,16 +567,11 @@
           }
         </style>
         
-        <div class="site-bottom">
-          <nav class="nav">
-            <div class="container">
-              <div class="w-layout-grid nav__grid">
-                <div id="w-node-_3ba2d671-b18d-46b0-2243-92e039c9e6f0-39c9e6ed" class="nav__list">
-                  <div class="nav__item" style="font-size: 40px;"><p class="nav__order">01</p><a href="index.html" aria-current="page" class="nav__link w--current" data-lang="home" style="font-size: 40px;">Home</a></div><div class="nav__item"><p class="nav__order">02</p><a href="aboute.html" class="nav__link" data-lang="AboutBayMedia" style="font-size: 40px;">About BayMedia</a></div>
-                  <div class="nav__item">
-                    <p class="nav__order">03</p><a href="case.html" class="nav__link" data-lang="case" style="font-size: 40px;">Case</a></div>
-                    <div class="nav__item"><p class="nav__order">04</p><a href="contact.html" class="nav__link" data-lang="contact" style="font-size: 40px;">Contact</a></div></div>
-    </div></div></nav></div>
+        <div class="site-bottom" id="site-bottom" >
+          <nav class="nav"><div class="container"><div class="w-layout-grid nav__grid"><div id="w-node-_3ba2d671-b18d-46b0-2243-92e039c9e6f0-39c9e6ed" class="nav__list"><div class="nav__item"><p class="nav__order">01</p><a href="/" class="nav__link">Home</a></div><div class="nav__item"><p class="nav__order">02</p><a href="/aboute.html" aria-current="page" class="nav__link w--current">About BayMedia</a></div><div class="nav__item"><p class="nav__order">03</p><a href="case.html" class="nav__link">Case</a></div><div class="nav__item"><p class="nav__order">04</p><a href="/contact.html" class="nav__link">Contact</a></div></div></div></div></nav>
+            
+      
+        </div>
     </div>
   </footer>
 
@@ -607,7 +579,6 @@
 
   <script src="color.js"></script>
   <script src="mouse.js"></script>
-  <script src="toggle.js"></script>
   <script src="Translate.js"></script>
 <script>
   
