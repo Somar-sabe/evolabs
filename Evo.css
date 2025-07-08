@@ -2531,6 +2531,8 @@ label {
 }
 
 .h-scroll__inview {
+  width: 1040vw;
+  height: 1030vh;
   flex-wrap: wrap;
   align-items: center;
   line-height: 1.25;
