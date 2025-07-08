@@ -2913,16 +2913,15 @@ html {
   .uc {
     text-transform: uppercase;
   }
-  
   .nav__grid {
+    width: 100%;
     grid-column-gap: 4rem;
     grid-row-gap: 3rem;
     grid-template-rows: auto;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    width: 100%;
     padding-left: 16rem;
     padding-right: 6rem;
-  }
+}
   
   .mb-4 {
     margin-bottom: 4rem;
