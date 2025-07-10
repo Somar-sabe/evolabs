@@ -1148,29 +1148,31 @@
       <script src="mouse.js"></script>
       <script src="text.js"></script>
     </div>
-    <script src="locomotive-scroll.min.js"></script>
-    <script>
-      const scrollContainer = document.querySelector(".h-scroll__inview");
+   <script src="locomotive-scroll.min.js"></script>
+<script>
+  const scrollContainer = document.querySelector(".h-scroll__inview");
 
-      // Init smooth scroll
-      locoScroll = new LocomotiveScroll({
-        el: scrollContainer,
-        smooth: true,
-        multiplier: 1,
-        direction: "horizontal",
-        reloadOnContextChange: false,
-        touchMultiplier: 3,
-        smartphone: {
-          smooth: true,
-          direction: "vertical",
-        },
-        tablet: {
-          smooth: true,
-          direction: "horizontal",
-          breakpoint: 991,
-        },
-      });
-    </script>
+  const isMobile = window.innerWidth <= 768; // or use a stricter condition like navigator.userAgent
+
+  const locoScroll = new LocomotiveScroll({
+    el: scrollContainer,
+    smooth: true,
+    multiplier: 1,
+    direction: isMobile ? "vertical" : "horizontal", // 👈 Force vertical on mobile
+    reloadOnContextChange: false,
+    touchMultiplier: 3,
+    smartphone: {
+      smooth: true,
+      direction: "vertical", // 👈 Always vertical on smartphones
+    },
+    tablet: {
+      smooth: true,
+      direction: "horizontal",
+      breakpoint: 991, // tablets > 991px will be treated as desktop
+    },
+  });
+</script>
+
 
 
 <script src="https://player.vimeo.com/api/player.js"></script>
