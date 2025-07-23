@@ -539,7 +539,13 @@
   <script src="color.js"></script>
   <script src="mouse.js"></script>
   <script src="Translate.js"></script>
-
+<style>
+  @media screen and (max-width: 479px) {
+    .nav__link, .nav__link:hover {
+        font-size: 4rem !important;
+    }
+}
+</style>
   <script>
     document.getElementById("navigation").addEventListener("click", function() {
       document.querySelector(".site-bottom").classList.toggle("show");
