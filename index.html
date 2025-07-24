@@ -1219,12 +1219,12 @@
 
 </style>
 <script>
+  if (window.innerWidth > 1024) {
   document.addEventListener("DOMContentLoaded", function () {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate");
-          // Optional: stop observing after animation
           observer.unobserve(entry.target);
         }
       });
@@ -1232,11 +1232,12 @@
       threshold: 0.2
     });
 
-    // Select all logos inside the client grid
     document.querySelectorAll('.client-grid__logo').forEach(logo => {
       observer.observe(logo);
     });
   });
+}
+
 </script>
 
   </body>
